@@ -131,11 +131,15 @@ fn main() {
         [1.0, 1.0],
     ];
 
+    let mean= input_vectors.mean_axis(Axis(0)).unwrap();
+
+    let input_vectors = &input_vectors - &mean;
+
     let targets = array![0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0];
 
     let hidden = 8;
 
-    let iterations = 12500;
+    let iterations = 2000;
 
     let learning_rate = 0.05;
 
@@ -155,6 +159,6 @@ fn main() {
     }
 
     println!("Finished {} iterations in {:?}", iterations, duration);
-    println!("Avg. Error: {}", (sum / errors.len().to_f64().unwrap()));
+    println!("Final Error: {}, Avg. Error: {}", errors.last().unwrap(), (sum / errors.len().to_f64().unwrap()));
     
 }

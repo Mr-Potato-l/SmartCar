@@ -16,7 +16,7 @@ const OUTER_RADIUS: f32 = 230.0;
 const STEP_SIZE: f32 = 2.0;
 const RECORDING_CAP: usize = 1000;
 const RESTART_X: f32 = 70.0;
-const RAY_RANGE: f32 = 60.0;
+const RAY_RANGE: f32 = 100.0;
 
 fn create_network() -> NeuralNetwork {
     let input_vectors = array![

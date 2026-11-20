@@ -1,12 +1,11 @@
 #![allow(dead_code)]
 
-use crate::neural::NeuralNetwork;
 use macroquad::prelude::*;
 
-const MAX_SPEED: f32 = 200.0;
+const MAX_SPEED: f32 = 70.0;
 const MAX_REVERSE: f32 = -MAX_SPEED / 4.0;
 const TURN_POWER: f32 = MAX_SPEED / 3.0;
-const ACCELERATION: f32 = MAX_SPEED / 10.0;
+const ACCELERATION: f32 = MAX_SPEED / 5.0;
 const BRAKE: f32 = ACCELERATION * 4.0;
 const DRAG: f32 = ACCELERATION / 2.0;
 const SENSITIVITY: f32 = 1.3;
@@ -41,11 +40,11 @@ impl Car {
         self.y += self.angle.sin() * self.speed * dtime;
     }
 
-    pub fn get_x_at_len(&self) -> f32 {
+    pub fn front_x(&self) -> f32 {
         self.x + self.angle.cos() * -LEN
     }
 
-    pub fn get_y_at_len(&self) -> f32 {
+    pub fn front_y(&self) -> f32 {
         self.y + self.angle.sin() * -LEN
     }
 }

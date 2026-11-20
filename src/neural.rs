@@ -9,24 +9,12 @@ fn sigmoid(x: f64) -> f64 {
     1.0 / (1.0 + (-x).exp())
 }
 
-fn sigmoid_derivative(x: f64) -> f64{
-    sigmoid(x) * (1.0 - sigmoid(x))
-}
-
 fn leaky_relu(x: f64) -> f64 {
     if x > 0.0 { return x } else { return x * 0.01 }
 }
 
 fn leaky_relu_derivative(x: f64) -> f64 {
     if x > 0.0 { return 1.0 } else { return 0.01 }
-}
-
-fn mse(prediction: f64, target: f64) -> f64 {
-    (prediction - target).powf(2.0)
-}
-
-fn mse_derivative(prediction: f64, target: f64) -> f64 {
-    2.0 * (prediction - target)
 }
 
 fn bce(prediction: f64, target: f64) -> f64 {

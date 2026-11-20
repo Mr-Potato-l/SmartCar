@@ -1,5 +1,6 @@
 #![allow(dead_code)]
 mod neural;
+mod brain;
 mod car;
 
 use macroquad::prelude::*;
